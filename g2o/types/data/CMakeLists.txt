@@ -2,6 +2,7 @@ ADD_LIBRARY(types_data ${G2O_LIB_TYPE}
   types_data.cpp
   robot_data.cpp robot_data.h
   vertex_tag.cpp vertex_tag.h
+  vertex_ellipse.cpp vertex_ellipse.h
   laser_parameters.cpp laser_parameters.h
   raw_laser.cpp raw_laser.h
   robot_laser.cpp robot_laser.h
@@ -12,7 +13,7 @@ ADD_LIBRARY(types_data ${G2O_LIB_TYPE}
 SET_TARGET_PROPERTIES(types_data PROPERTIES OUTPUT_NAME ${LIB_PREFIX}types_data)
 
 TARGET_LINK_LIBRARIES(types_data core types_slam2d)
-IF(OPENGL_FOUND)
+IF(G2O_HAVE_OPENGL)
   TARGET_LINK_LIBRARIES(types_data freeglut_minimal opengl_helper)
 ENDIF()
 
